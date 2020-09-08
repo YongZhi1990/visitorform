@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Visitor Form</h1>
+    <label for="name">Name</label>
+    <input id="name" value="" />
+	<br></br>
+	<label for="contact">Contact Number</label>
+	<input id="contact" value="" />
+	<br></br>
+    <label>Other Information to Collect</label>
+    <br></br>
+    <textarea id="shortanswer" rows = "5" cols = "60"></textarea>\
+	<br></br>
+    <button id="submit">submit</button>
+   
+    <script>
+		const button = document.getElementById('submit');
+		button.addEventListener('click', async event => {
+			const name = document.getElementById('name').value;
+			const contact = document.getElementById('contact').value;
+			const shortanswer = document.getElementById('shortanswer').value;
+			const url = 'http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=' + name + '%20' + contact + '%20' + shortanswer;
+			if(typeof IE_fix != "undefined") {// IE8 and lower fix to pass the http referer
+				document.write("redirecting..."); // Don't remove this line or appendChild() will fail because it is called before document.onload to make the redirect as fast as possible. Nobody will see this text, it is only a tech fix.
+				const referLink = document.createElement("a");
+				referLink.href = url;
+				document.body.appendChild(referLink);
+				referLink.click();
+			} else {
+		window.location.replace(url); 
+		}
+	});
+		
+		//const image = document.createElement('img')
+		//image.src = url
+		//document.body.append(image)
+    </script>
+  </body>
+</html>
