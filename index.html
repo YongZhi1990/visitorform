@@ -26,7 +26,7 @@
 			const name = document.getElementById('name').value;
 			const contact = document.getElementById('contact').value;
 			const shortanswer = document.getElementById('shortanswer').value;
-			const url = 'http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=' + name + '%20' + contact + '%20' + shortanswer;
+			const url = 'http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=' + name + '%24' + contact + '%24' + shortanswer;
 			if(typeof IE_fix != "undefined") {// IE8 and lower fix to pass the http referer
 				document.write("redirecting..."); // Don't remove this line or appendChild() will fail because it is called before document.onload to make the redirect as fast as possible. Nobody will see this text, it is only a tech fix.
 				const referLink = document.createElement("a");
